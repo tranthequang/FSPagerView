@@ -81,6 +81,7 @@ open class FSPagerViewCell: UICollectionViewCell {
     
     fileprivate let kvoContext = UnsafeMutableRawPointer(bitPattern: 0)
     fileprivate let selectionColor = UIColor(white: 0.2, alpha: 0.2)
+    var shopPressed: ((Int) -> Void)?
     
     fileprivate weak var _selectedForegroundView: UIView?
     fileprivate var selectedForegroundView: UIView? {
@@ -137,6 +138,10 @@ open class FSPagerViewCell: UICollectionViewCell {
         self.contentView.layer.shadowRadius = 5
         self.contentView.layer.shadowOpacity = 0.75
         self.contentView.layer.shadowOffset = .zero
+    }
+    
+    fileprivate func buttonTapped() {
+        self.shopPressed?(_shopButton?.tag ?? 0)
     }
     
     deinit {
