@@ -69,6 +69,7 @@ open class FSPagerViewCell: UICollectionViewCell {
         shopButton.setTitle("SHOP NOW", for: .normal)
         shopButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         shopButton.backgroundColor = UIColor(red: 1/255, green: 111/255, blue: 52/255, alpha: 1)
+        shopButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         self.contentView.addSubview(shopButton)
         _shopButton = shopButton
         return shopButton
@@ -81,7 +82,8 @@ open class FSPagerViewCell: UICollectionViewCell {
     
     fileprivate let kvoContext = UnsafeMutableRawPointer(bitPattern: 0)
     fileprivate let selectionColor = UIColor(white: 0.2, alpha: 0.2)
-    var shopPressed: ((Int) -> Void)?
+    @objc
+    open var shopPressed: ((Int) -> Void)?
     
     fileprivate weak var _selectedForegroundView: UIView?
     fileprivate var selectedForegroundView: UIView? {
@@ -140,7 +142,7 @@ open class FSPagerViewCell: UICollectionViewCell {
         self.contentView.layer.shadowOffset = .zero
     }
     
-    fileprivate func buttonTapped() {
+    @objc fileprivate func buttonTapped() {
         self.shopPressed?(_shopButton?.tag ?? 0)
     }
     
