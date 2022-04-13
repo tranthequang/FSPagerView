@@ -169,7 +169,7 @@ open class FSPagerViewCell: UICollectionViewCell {
         
         if let descLabel = _descLabel {
             print("Height of desc label: \(descLabel.retrieveTextHeight(width: self.contentView.bounds.width - 60))")
-            descLabel.frame = CGRect(x: 30, y: 84 + (_textLabel?.retrieveTextHeight(width: self.contentView.bounds.width - 60) ?? 0), width: self.contentView.bounds.width - 60, height: descLabel.retrieveTextHeight(width: self.contentView.bounds.width - 60))
+            descLabel.frame = CGRect(x: 30, y: 45 + (_textLabel?.retrieveTextHeight(width: self.contentView.bounds.width - 60) ?? 0), width: self.contentView.bounds.width - 60, height: descLabel.retrieveTextHeight(width: self.contentView.bounds.width - 60))
         }
         if let selectedForegroundView = _selectedForegroundView {
             selectedForegroundView.frame = self.contentView.bounds
